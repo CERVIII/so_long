@@ -12,10 +12,10 @@
 
 #include "../include/so_long.h"
 
-static void	leaks(void)
+/* static void	leaks(void)
 {
 	system("leaks -q so_long");
-}
+} */
 
 void	init_struct(t_map *map)
 {
@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 {
 	t_map	map;
 
-	atexit(leaks);
+	//atexit(leaks);
 	if (arg_ok(argc, argv[1]) == 0)
 	{
 		printf("%sERROR: argumento invalido o mal nombrado\n%s", RED, NORMAL);
