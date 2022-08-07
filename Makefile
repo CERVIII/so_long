@@ -56,6 +56,8 @@ clean:
 
 fclean:	clean
 		rm -f $(NAME)
+		make fclean -sC $(LIBFT_PATH)
+		make fclean -sC $(MLX_PATH)
 
 re:	fclean all
 
