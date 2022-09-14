@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcervill <pcervill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 18:10:57 by pcervill          #+#    #+#             */
-/*   Updated: 2022/08/06 23:57:08 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:30:56 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,6 @@
 # define UP 126
 # define ESC 53
 
-/* typedef struct s_win
-{
-	void	*mlx;
-	void	*img;
-	void	*mlx_win;
-}	t_win; */
-
 typedef struct s_map
 {
 	char	**map;
@@ -88,13 +81,5 @@ void	create_image(t_map	*map);
 int		press(int keycode, t_map *map);
 int		close_game(t_map *map);
 void	coins(t_map *map);
-
-/* int		arg_ok(int argc, char *argv);
-void	read_write_fdmap(char *argv, t_map *map);
-int		check_game_map(t_map *map);
-void	init_struct(t_map *map);
-void	new_window(t_map *map, t_win *win);
-void	create_image(t_map	*map, t_win *win);
-int		press(int keycode, t_map *map, t_win *win); */
 
 #endif

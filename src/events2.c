@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcervill <pcervill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:11:32 by pcervill          #+#    #+#             */
-/*   Updated: 2022/08/06 23:58:13 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:06:09 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	close_game(t_map *map)
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	while (map->map[i])
 	{
 		free(map->map[i]);
