@@ -6,16 +6,17 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:22:37 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/20 12:22:47 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:47:44 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static void	leaks(void)
+/* static void	leaks(void)
 {
 	system("leaks -q so_long");
-}
+	
+} atexit(leaks); */
 
 void	init_struct(t_map *map)
 {
@@ -29,7 +30,6 @@ int	main(int argc, char *argv[])
 {
 	t_map	map;
 
-	atexit(leaks);
 	if (arg_ok(argc, argv[1]) == 0)
 	{
 		printf("%sERROR:\nArgumento invalido o mal nombrado\n%s", RED, NORMAL);
