@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:22:37 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/14 14:41:15 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:22:47 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ int	main(int argc, char *argv[])
 	if (arg_ok(argc, argv[1]) == 0)
 	{
 		printf("%sERROR:\nArgumento invalido o mal nombrado\n%s", RED, NORMAL);
-		return (0);
+		exit (1);
 	}
 	read_write_fdmap(argv[1], &map);
 	if (map.map[0] == NULL)
 	{
 		printf("%sERROR\nMapa Invalido\n%s", RED, NORMAL);
-		return (0);
+		exit (1);
 	}
 	if (!check_game_map(&map))
-		return (0);
+		exit (1);
 	new_window(&map);
 	mlx_hook(map.mlx_win, 2, (1L << 0), press, &map);
 	printf("%sCARGANDO...\n%s", YELLOW, NORMAL);

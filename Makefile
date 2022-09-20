@@ -6,7 +6,7 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 11:44:31 by snunez            #+#    #+#              #
-#    Updated: 2022/09/14 14:23:36 by pcervill         ###   ########.fr        #
+#    Updated: 2022/09/20 11:16:12 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,4 +62,3 @@ fclean:	clean
 re:	fclean all
 
 .PHONY = all clean fclean re
-
