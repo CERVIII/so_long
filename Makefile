@@ -6,7 +6,7 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 11:44:31 by snunez            #+#    #+#              #
-#    Updated: 2022/09/20 11:16:12 by pcervill         ###   ########.fr        #
+#    Updated: 2022/09/21 13:12:21 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,29 +36,32 @@ else
 	MINILIBX:= -L $(MLX_PATH) $(MLX_PATH)libmlx.a -lmlx -lXext -lX11
 endif
 
-all:	$(NAME)
+all:		$(NAME)
+			@echo " \033[36m[ OK ] | READY TO PLAY!\033[0m"
 
-$(NAME) :	slibft mlx $(OBJS)
+$(NAME):	$(OBJS)
+			@echo " \033[33m[ .. ] | Compiling minilibx..\033[0m"
+			@make -C $(MLX_PATH)
+			@echo " \033[32m[ OK ] | Minilibx ready!\033[0m"
+			@echo " \033[33m[ .. ] | Compiling libft..\033[0m"
+			@make bonus -C $(LIBFT_PATH)
+			@echo " \033[32m[ OK ] | Libft ready!\033[0m"
+			@echo " \033[33m[ .. ] | Compiling so_long..\033[0m"
 			$(CC) $(CFLAGS) $(OBJS) $(MINILIBX) $(LIBFT) -o $(NAME)
+			@echo " \033[32m[ OK ] | So_long ready!\033[0m"
 
 run:
-	./$(NAME) map.ber
-
-slibft:
-		make -C $(LIBFT_PATH)
-
-mlx:
-		make -C $(MLX_PATH)
+			./$(NAME) map.ber
 
 clean:
-		make clean -C $(LIBFT_PATH)
-		make clean -C $(MLX_PATH)
-		rm -f $(OBJS)
+			make clean -C $(LIBFT_PATH)
+			rm -f $(OBJS)
 
-fclean:	clean
-		rm -f $(NAME)
-		make fclean -C $(LIBFT_PATH)
+fclean:		clean
+			rm -f $(NAME)
+			make fclean -C $(LIBFT_PATH)
 
-re:	fclean all
+re:			fclean all
 
-.PHONY = all clean fclean re
+.PHONY: 	all clean fclean re
+.SILENT: $(OBJS)
