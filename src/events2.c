@@ -6,23 +6,39 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:11:32 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/14 15:06:09 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:16:30 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	close_game(t_map *map)
+int	ft_error(char *error, t_map *map)
+{
+	printf("%s%s", RED, error);
+	free_all(map);
+	exit(EXIT_FAILURE);
+}
+
+void	free_all(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	while (map->map[i])
+	if (map->map)
 	{
-		free(map->map[i]);
-		i++;
+		while (map->map[i])
+		{
+			free(map->map[i]);
+			i++;
+		}
+		free(map->map);
 	}
-	free(map->map);
+	i = 0;
+}
+
+int	close_game(t_map *map)
+{
+	free_all(map);
 	mlx_destroy_window(map->mlx, map->mlx_win);
 	exit (0);
 	return (0);

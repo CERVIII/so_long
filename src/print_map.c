@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 12:45:07 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/12 13:35:50 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:25:56 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ static char	*condition_print(int x, int y, t_map *map)
 	else if (map->map[x][y] == '0')
 		return (map->sprite = FL);
 	return (NULL);
+}
+
+void	put_image_player(t_map *map, int x, int y)
+{
+	map->img = mlx_xpm_file_to_image(map->mlx, FL, &map->w, &map->h);
+	mlx_put_image_to_window(map->mlx, map->mlx_win, map->img,
+		map->prev_y * 56, map->prev_x * 56);
+	mlx_put_image_to_window(map->mlx, map->mlx_win, map->img, y * 56, x * 56);
+	mlx_destroy_image(map->mlx, map->img);
+	map->img = mlx_xpm_file_to_image(map->mlx,
+			condition_print(x, y, map), &map->w, &map->h);
+	mlx_put_image_to_window(map->mlx, map->mlx_win,
+		map->img, y * 56, x * 56);
+	mlx_destroy_image(map->mlx, map->img);
 }
 
 static void	put_image(t_map *map, int x, int y)

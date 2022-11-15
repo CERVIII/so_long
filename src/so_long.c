@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:22:37 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/20 12:47:44 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:02:49 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,18 @@ int	main(int argc, char *argv[])
 {
 	t_map	map;
 
-	if (arg_ok(argc, argv[1]) == 0)
-	{
-		printf("%sERROR:\nArgumento invalido o mal nombrado\n%s", RED, NORMAL);
-		exit (1);
-	}
+	arg_ok(argc, argv[1], &map);
 	read_write_fdmap(argv[1], &map);
 	if (map.map[0] == NULL)
-	{
-		printf("%sERROR\nMapa Invalido\n%s", RED, NORMAL);
-		exit (1);
-	}
+		ft_error("Error\nMapa Invalido\n", &map);
 	if (!check_game_map(&map))
 		exit (1);
+	ft_check_validpath(&map, map.xp, map.yp);
+	ft_check_path(&map);
 	new_window(&map);
 	mlx_hook(map.mlx_win, 2, (1L << 0), press, &map);
 	printf("%sCARGANDO...\n%s", YELLOW, NORMAL);
 	mlx_hook(map.mlx_win, 17, 0, close_game, &map);
 	mlx_loop(map.mlx);
+	return (0);
 }

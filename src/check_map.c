@@ -6,15 +6,27 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:38:12 by pcervill          #+#    #+#             */
-/*   Updated: 2022/05/31 12:24:52 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:15:28 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	arg_ok(int argc, char *argv)
+void	arg_ok(int argc, char *argv, t_map *map)
 {
-	return ((argc == 2 && ft_strcmp(ft_strrchr(argv, '.'), ".ber") == 0));
+	int		len;
+
+	if (argc != 2)
+	{
+		printf("%sError\nNo has cargado el mapa\n", RED);
+		ft_error("Try ./so_long <name of map>.ber\n", map);
+	}
+	else
+	{
+		len = ft_strlen(argv);
+		if (ft_strncmp(argv + len - 4, ".ber", 4))
+			ft_error("Error\nSe necesita la extension '.ber'\n", map);
+	}
 }
 
 void	read_write_fdmap(char *argv, t_map *map)
@@ -26,7 +38,7 @@ void	read_write_fdmap(char *argv, t_map *map)
 
 	fd = open(argv, O_RDONLY);
 	if (!fd)
-		return ;
+		ft_error("\nError\nArchivo no encontrado", map);
 	strmap = ft_strdup("");
 	while (1)
 	{
@@ -40,5 +52,6 @@ void	read_write_fdmap(char *argv, t_map *map)
 		free(newstr);
 	}
 	map->map = ft_split(strmap, '\n');
+	map->map2 = ft_split(strmap, '\n');
 	free(strmap);
 }

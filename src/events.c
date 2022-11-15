@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:35:34 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/14 15:02:50 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:26:53 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	mov_up(t_map *map)
 
 int	press(int keycode, t_map *map)
 {
+	map->prev_x = map->xp;
+	map->prev_y = map->yp;
 	if (keycode == ESC)
 		close_game(map);
 	else if (keycode == A || keycode == LEFT)
@@ -124,7 +126,8 @@ int	press(int keycode, t_map *map)
 		mov_down(map);
 	else if (keycode == W || keycode == UP)
 		mov_up(map);
-	create_image(map);
+//	create_image(map);
+	put_image_player(map, map->xp, map->yp);
 	printf("%sMOVIMIENTO Nº: %s%d\n%s", YELLOW, CYAN, map->mov, NORMAL);
 	return (0);
 }

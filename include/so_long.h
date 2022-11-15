@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 18:10:57 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/12 13:30:56 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:25:34 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,20 @@
 typedef struct s_map
 {
 	char	**map;
+	char	**map2;
 	char	*strmap;
 	char	*sprite;
 	int		person;
 	int		coin;
+	int		coin2;
 	int		exit;
+	int		valid_exit;
 	int		xmax;
 	int		ymax;
 	int		xp;
 	int		yp;
+	int		prev_x;
+	int		prev_y;
 	int		w;
 	int		h;
 	int		mov;
@@ -72,7 +77,7 @@ typedef struct s_map
 	void	*mlx_win;
 }	t_map;
 
-int		arg_ok(int argc, char *argv);
+void	arg_ok(int argc, char *argv, t_map *map);
 void	read_write_fdmap(char *argv, t_map *map);
 int		check_game_map(t_map *map);
 void	init_struct(t_map *map);
@@ -81,5 +86,10 @@ void	create_image(t_map	*map);
 int		press(int keycode, t_map *map);
 int		close_game(t_map *map);
 void	coins(t_map *map);
+void	ft_check_validpath(t_map *map, int x, int y);
+void	ft_check_path(t_map *map);
+int		ft_error(char *error, t_map *map);
+void	free_all(t_map *map);
+void	put_image_player(t_map *map, int x, int y);
 
 #endif
