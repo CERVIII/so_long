@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:38:12 by pcervill          #+#    #+#             */
-/*   Updated: 2022/11/15 14:15:28 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:13:57 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	arg_ok(int argc, char *argv, t_map *map)
 {
 	int		len;
 
+	map->starg = 1;
 	if (argc != 2)
 	{
+		map->starg = 0;
 		printf("%sError\nNo has cargado el mapa\n", RED);
 		ft_error("Try ./so_long <name of map>.ber\n", map);
 	}
@@ -25,7 +27,10 @@ void	arg_ok(int argc, char *argv, t_map *map)
 	{
 		len = ft_strlen(argv);
 		if (ft_strncmp(argv + len - 4, ".ber", 4))
+		{
+			map->starg = 0;
 			ft_error("Error\nSe necesita la extension '.ber'\n", map);
+		}
 	}
 }
 

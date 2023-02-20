@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 18:10:57 by pcervill          #+#    #+#             */
-/*   Updated: 2022/11/15 14:25:34 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:12:39 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_map
 	char	**map2;
 	char	*strmap;
 	char	*sprite;
+	int		starg;
 	int		person;
 	int		coin;
 	int		coin2;
