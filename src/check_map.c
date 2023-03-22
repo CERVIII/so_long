@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:38:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/20 13:13:57 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:39:59 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	read_write_fdmap(char *argv, t_map *map)
 	int		fd;
 
 	fd = open(argv, O_RDONLY);
-	if (!fd)
-		ft_error("\nError\nArchivo no encontrado", map);
+	if (!fd || fd == -1)
+		ft_error("\nError\nArchivo no encontrado\n", map);
 	strmap = ft_strdup("");
 	while (1)
 	{
