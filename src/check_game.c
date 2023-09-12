@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:40:40 by pcervill          #+#    #+#             */
-/*   Updated: 2022/11/15 14:15:09 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:12:06 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	check_char(t_map *map)
 		{
 			if (aux[x][y] != '1' && aux[x][y] != '0' && aux[x][y] != 'P' &&
 				aux[x][y] != 'C' && aux[x][y] != 'E')
-				ft_error("\nError\nEl mapa contiene carácteres invalidos\n", map);
+				ft_error("\nError\nMap contain invalid characters.\n", map);
 			y++;
 		}
 		x++;
@@ -79,7 +79,7 @@ static int	check_borde(t_map *map)
 		{
 			if (aux[0][y] != '1' || aux[map->xmax - 1][y] != '1' ||
 				aux[x][0] != '1' || aux[x][map->ymax - 1] != '1')
-				ft_error("\nError\nEl mapa no está bordeado correctamente\n", map);
+				ft_error("\nError\nThe map is not correctly bordered.\n", map);
 			y++;
 		}
 		x++;
@@ -97,7 +97,7 @@ static int	check_size_map(t_map *map)
 	while (aux[map->xmax] && map->ymax == (int) ft_strlen(aux[map->xmax]))
 		map->xmax++;
 	if (aux[map->xmax])
-		ft_error("\nError\nDiferente tamaño de lineas\n", map);
+		ft_error("\nError\nDiferent line sizes.\n", map);
 	return (!(aux[map->xmax]));
 }
 
@@ -112,7 +112,7 @@ int	check_game_map(t_map *map)
 		return (0);
 	if (map->coin < 1 || map->exit < 1 || map->person < 1)
 	{
-		ft_error("\nError\nLa cantidad de E, P y/o C es incorrecta\n", map);
+		ft_error("\nError\nThe amount of E,P &/or is incorrect\n", map);
 	}
 	return (1);
 }

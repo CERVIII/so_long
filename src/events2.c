@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:11:32 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/20 13:13:03 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:41:36 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	ft_error(char *error, t_map *map)
 {
-	printf("%s%s", RED, error);
+	ft_putstr_fd(RED, 1);
+	ft_putstr_fd(error, 1);
+	ft_putstr_fd(NORMAL, 1);
 	if (map->starg == 1)
 	free_all(map);
 	exit(EXIT_FAILURE);
@@ -48,10 +50,15 @@ int	close_game(t_map *map)
 void	coins(t_map *map)
 {
 	map->coin--;
-	printf("%sCOGISTE UNA MONEDA, %sTE FALTAN: %d\n%s", GREEN,
-		MAGENT, map->coin, NORMAL);
+	ft_putstr_fd(GREEN, 1);
+	ft_putstr_fd("YOU CAUGHT A COIN, ", 1);
+	ft_putstr_fd(MAGENT, 1);
+	ft_putstr_fd("YOU'RE LEFT: ", 1);
+	ft_putnbr_fd(map->coin, 1);
+	write(1, "\n", 1);
 	if (map->coin == 0)
 	{
-		printf("%sMONEDAS RECOGIDAS, BUSCA LA SALIDA\n%s", BLUE, NORMAL);
+		ft_putstr_fd(BLUE, 1);
+		ft_putendl_fd("COLLECTED COINS, LOOK FOR THE EXIT", 1);
 	}
 }

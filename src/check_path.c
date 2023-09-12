@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:26:35 by pcervill          #+#    #+#             */
-/*   Updated: 2022/11/15 14:59:25 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:14:33 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	ft_check_validpath(t_map *map, int x, int y)
 
 	p = &map->map2[x][y];
 	if (*p == 'E')
+	{
+		map->map2[x][y] = '1';
 		map->valid_exit = 1;
+	}
 	if (*p != '1')
 	{
 		if (*p == 'C')
@@ -51,5 +54,5 @@ void	ft_check_path(t_map *map)
 	}
 	free(map->map2);
 	if (map->coin2 != 0 || map->valid_exit != 1)
-		ft_error("\nError\nEl mapa no tiene camino valido\n", map);
+		ft_error("\nError\nNo valid path.\n", map);
 }

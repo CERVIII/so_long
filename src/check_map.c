@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:38:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/21 10:39:59 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:03:41 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	arg_ok(int argc, char *argv, t_map *map)
 	if (argc != 2)
 	{
 		map->starg = 0;
-		printf("%sError\nNo has cargado el mapa\n", RED);
+		ft_putstr_fd(RED, 1);
+		ft_putstr_fd("Error\nNo map loaded\n", 1);
 		ft_error("Try ./so_long <name of map>.ber\n", map);
 	}
 	else
@@ -29,7 +30,7 @@ void	arg_ok(int argc, char *argv, t_map *map)
 		if (ft_strncmp(argv + len - 4, ".ber", 4))
 		{
 			map->starg = 0;
-			ft_error("Error\nSe necesita la extension '.ber'\n", map);
+			ft_error("Error\nThe '.ber' extension is needed\n", map);
 		}
 	}
 }
@@ -43,7 +44,7 @@ void	read_write_fdmap(char *argv, t_map *map)
 
 	fd = open(argv, O_RDONLY);
 	if (!fd || fd == -1)
-		ft_error("\nError\nArchivo no encontrado\n", map);
+		ft_error("\nError\nFile not found\n", map);
 	strmap = ft_strdup("");
 	while (1)
 	{
