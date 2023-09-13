@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:11:32 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/13 10:12:28 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:11:05 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	coins(t_map *map)
 	ft_putstr_fd(GREEN, 1);
 	ft_putstr_fd("YOU CAUGHT A COIN, ", 1);
 	ft_putstr_fd(MAGENT, 1);
-	ft_putstr_fd("YOU'RE LEFT: ", 1);
+	ft_putstr_fd("REMAINING COINS: ", 1);
 	ft_putnbr_fd(map->coin, 1);
 	write(1, "\n", 1);
 	if (map->coin == 0)
