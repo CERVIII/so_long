@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:11:32 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/12 13:41:36 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/13 10:12:28 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_error(char *error, t_map *map)
 	ft_putstr_fd(error, 1);
 	ft_putstr_fd(NORMAL, 1);
 	if (map->starg == 1)
-	free_all(map);
+		free_all(map);
 	exit(EXIT_FAILURE);
 }
 

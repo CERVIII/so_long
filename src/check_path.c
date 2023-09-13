@@ -6,11 +6,17 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:26:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/12 13:14:33 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:04:17 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	ft_check_exit(t_map *map, int x, int y)
+{
+		map->map2[x][y] = '1';
+		map->valid_exit = 1;
+}
 
 void	ft_check_validpath(t_map *map, int x, int y)
 {
@@ -18,10 +24,7 @@ void	ft_check_validpath(t_map *map, int x, int y)
 
 	p = &map->map2[x][y];
 	if (*p == 'E')
-	{
-		map->map2[x][y] = '1';
-		map->valid_exit = 1;
-	}
+		ft_check_exit(map, x, y);
 	if (*p != '1')
 	{
 		if (*p == 'C')
