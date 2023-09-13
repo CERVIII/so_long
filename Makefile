@@ -6,7 +6,7 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 11:44:31 by snunez            #+#    #+#              #
-#    Updated: 2022/11/15 14:58:09 by pcervill         ###   ########.fr        #
+#    Updated: 2023/09/13 12:13:45 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,32 +37,34 @@ else
 	MINILIBX:= -L $(MLX_PATH) $(MLX_PATH)libmlx.a -lmlx -lXext -lX11
 endif
 
-all:		$(NAME)
-			@echo " \033[36m[ OK ] | READY TO PLAY!\033[0m"
+all:	$(NAME)
+	@echo " \033[36m[ 🕹️  ] | READY TO PLAY!\033[0m"
 
 $(NAME):	$(OBJS)
-			@echo " \033[33m[ .. ] | Compiling minilibx..\033[0m"
-			@make -C $(MLX_PATH)
-			@echo " \033[32m[ OK ] | Minilibx ready!\033[0m"
-			@echo " \033[33m[ .. ] | Compiling libft..\033[0m"
-			@make bonus -C $(LIBFT_PATH)
-			@echo " \033[32m[ OK ] | Libft ready!\033[0m"
-			@echo " \033[33m[ .. ] | Compiling so_long..\033[0m"
-			$(CC) $(CFLAGS) $(OBJS) $(MINILIBX) $(LIBFT) -o $(NAME)
-			@echo " \033[32m[ OK ] | So_long ready!\033[0m"
+	@echo " \033[33m[ .. ] | Compiling minilibx..\033[0m"
+	@make -C $(MLX_PATH) --silent
+	@echo " \033[32m[ OK ] | ✅ Minilibx ready! ✅\033[0m"
+	@echo " \033[33m[ .. ] | Compiling libft..\033[0m"
+	@make bonus -C $(LIBFT_PATH) --silent
+	@echo " \033[32m[ OK ] | ✅ Libft ready! ✅\033[0m"
+	@echo " \033[33m[ .. ] | Compiling so_long..\033[0m"
+	@$(CC) $(CFLAGS) $(OBJS) $(MINILIBX) $(LIBFT) -o $(NAME)
+	@echo " \033[32m[ OK ] | ✅ So_long ready! ✅\033[0m"
 
 run:
-			./$(NAME) map.ber
+	./$(NAME) map.ber
 
 clean:
-			make clean -C $(LIBFT_PATH)
-			rm -f $(OBJS)
+	@make clean -C $(LIBFT_PATH) --silent
+	@rm -f $(OBJS)
 
-fclean:		clean
-			rm -f $(NAME)
-			make fclean -C $(LIBFT_PATH)
+fclean:	clean
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT_PATH) --silent
+	@make clean -C $(MLX_PATH) --silent
+	@echo " \033[35m[ OK ] | 🧹 So_long clean! 🧹\033[0m"
 
-re:			fclean all
+re:	fclean all
 
 .PHONY: 	all clean fclean re
 .SILENT: $(OBJS)
