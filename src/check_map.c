@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:38:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/13 13:03:37 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:58:05 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	arg_ok(int argc, char *argv, t_map *map)
 	if (argc != 2)
 	{
 		map->starg = 0;
-		ft_putstr_fd(RED, 1);
-		ft_putstr_fd("Error\nNo map loaded\n", 1);
-		ft_error("Try ./so_long <name of map>.ber\n", map);
+		ft_error("Error\nTry ./so_long <name of map>.ber\n", map);
 	}
 	else
 	{

@@ -6,13 +6,13 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 11:44:31 by snunez            #+#    #+#              #
-#    Updated: 2023/09/25 10:18:41 by pcervill         ###   ########.fr        #
+#    Updated: 2023/09/25 10:26:10 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -g3
 
 SRC_DIR = ./src
 
