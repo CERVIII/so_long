@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:35:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/26 16:21:11 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/26 15:35:19 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	mov_left(t_map *map)
 			map->map[map->xp][map->yp] = '0';
 			map->yp = map->yp - 1;
 			map->mov++;
+			map->sprp = PJL;
 		}
 	}
 }
@@ -58,6 +59,7 @@ void	mov_right(t_map *map)
 			map->map[map->xp][map->yp] = '0';
 			map->yp = map->yp + 1;
 			map->mov++;
+			map->sprp = PJR;
 		}
 	}
 }
@@ -83,6 +85,7 @@ void	mov_down(t_map *map)
 			map->map[map->xp][map->yp] = '0';
 			map->xp = map->xp + 1;
 			map->mov++;
+			map->sprp = PJD;
 		}
 	}
 }
@@ -108,6 +111,7 @@ void	mov_up(t_map *map)
 			map->map[map->xp][map->yp] = '0';
 			map->xp = map->xp - 1;
 			map->mov++;
+			map->sprp = PJU;
 		}
 	}
 }

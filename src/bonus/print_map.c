@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 12:45:07 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/26 16:21:23 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/26 15:40:37 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*condition_print(int x, int y, t_map *map)
 	else if (map->map[x][y] == 'C')
 		return (map->sprite = CO);
 	else if (map->map[x][y] == 'P')
-		return (map->sprite = PJ);
+		return (map->sprite = map->sprp);
 	else if (map->map[x][y] == 'E')
 		return (map->sprite = EX);
 	else if (map->map[x][y] == '0')

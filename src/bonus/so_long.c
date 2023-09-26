@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:22:37 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/26 16:20:16 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/26 15:41:53 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_struct(t_map *map)
 	map->coin = 0;
 	map->exit = 0;
 	map->mov = 0;
+	map->sprp = PJR;
+	printf("%s\n", map->sprp);
 }
 
 int	main(int argc, char *argv[])

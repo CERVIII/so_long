@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 18:10:57 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/13 16:16:18 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:33:03 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 #  define BUFFER_SIZE 5
 # endif
 # define PJ "./Sprites/Pacman_HD.xpm"
+# define PJL "./Sprites/pac_semi_left.xpm"
+# define PJR "./Sprites/pac_semi_right.xpm"
+# define PJD "./Sprites/pac_semi_down.xpm"
+# define PJU "./Sprites/pac_semi_up.xpm"
 # define CO "./Sprites/coin.xpm"
 # define EX "./Sprites/portal_close.xpm"
 # define FL "./Sprites/floor1.xpm"
@@ -76,6 +80,7 @@ typedef struct s_map
 	void	*mlx;
 	void	*img;
 	void	*mlx_win;
+	char	*sprp;
 }	t_map;
 
 void	arg_ok(int argc, char *argv, t_map *map);

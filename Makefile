@@ -6,13 +6,13 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 11:44:31 by snunez            #+#    #+#              #
-#    Updated: 2023/09/25 10:26:10 by pcervill         ###   ########.fr        #
+#    Updated: 2023/09/26 16:25:02 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address -g3
 
 SRC_DIR = ./src
 
@@ -42,6 +42,10 @@ all: $(NAME)
 
 .SILENT: $(OBJS)
 $(NAME): $(OBJS)
+	@make -C $(MLX_PATH) --silent
+	clear
+	@echo " \033[33m[ .. ] | Compiling minilibx..\033[0m"
+	@echo " \033[32m[ OK ] | ✅ Minilibx ready! ✅\033[0m"
 	@echo "\033[36m" '╔═════════════════════════════════════════════════╗'	"\033[0m"
 	@echo "\033[36m" '║\033[33m      _____ ____       __    ____  _   ________  \033[36m║'	"\033[0m" 
 	@echo "\033[36m" '║\033[33m     / ___// __ \     / /   / __ \/ | / / ____/  \033[36m║'	"\033[0m" 
@@ -50,9 +54,6 @@ $(NAME): $(OBJS)
 	@echo "\033[36m" '║\033[33m   /____/\____/____/_____/\____/_/ |_/\____/     \033[36m║'	"\033[0m" 
 	@echo "\033[36m" '║\033[33m             /_____/                             \033[36m║'	"\033[0m"
 	@echo "\033[36m" '╚═════════════════════════════════════════════════╝'	"\033[0m"
-	@echo " \033[33m[ .. ] | Compiling minilibx..\033[0m"
-	@make -C $(MLX_PATH) --silent
-	@echo " \033[32m[ OK ] | ✅ Minilibx ready! ✅\033[0m"
 	@echo " \033[33m[ .. ] | Compiling libft..\033[0m"
 	@make bonus -C $(LIBFT_PATH) --silent
 	@echo " \033[32m[ OK ] | ✅ Libft ready! ✅\033[0m"
@@ -71,7 +72,7 @@ fclean:	clean
 	@rm -f $(NAME)
 	@make fclean -C $(LIBFT_PATH) --silent
 	@echo " \033[35m[ OK ] | 🧹 So_long clean! 🧹\033[0m"
-#	@make clean -C $(MLX_PATH) --silent
+	@make clean -C $(MLX_PATH) --silent
 
 re:	fclean all
 
