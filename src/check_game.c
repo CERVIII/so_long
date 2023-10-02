@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:40:40 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/12 13:12:06 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:18:29 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	check_game_map(t_map *map)
 		return (0);
 	if (check_char(map) != 1)
 		return (0);
-	if (map->coin < 1 || map->exit < 1 || map->person < 1)
+	if (map->coin < 1 || map->exit != 1 || map->person != 1)
 	{
 		ft_error("\nError\nThe amount of E,P &/or is incorrect\n", map);
 	}
