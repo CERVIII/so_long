@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 18:24:43 by pcervill          #+#    #+#             */
-/*   Updated: 2022/09/20 11:11:32 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/05/06 13:07:07 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
+# include <stdint.h>
 # include <string.h>
 # include <stdio.h>
 # include <ctype.h>
