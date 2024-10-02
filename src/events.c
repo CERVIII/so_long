@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:35:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/26 16:21:11 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/10/02 13:45:19 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,15 +119,15 @@ int	press(int keycode, t_map *map)
 	map->prev_x = map->xp;
 	map->prev_y = map->yp;
 	movlast = map->mov;
-	if (keycode == ESC)
+	if (keycode == ESC || keycode == ESC_L)
 		close_game(map);
-	else if (keycode == A || keycode == LEFT)
+	else if (keycode == A || keycode == LEFT || keycode == A_L || keycode == L)
 		mov_left(map);
-	else if (keycode == D || keycode == RIGHT)
+	else if (keycode == D || keycode == RIGHT || keycode == D_L || keycode == R)
 		mov_right(map);
-	else if (keycode == S || keycode == DOWN)
+	else if (keycode == S || keycode == DOWN || keycode == S_L || keycode == DW)
 		mov_down(map);
-	else if (keycode == W || keycode == UP)
+	else if (keycode == W || keycode == UP || keycode == W_L || keycode == U)
 		mov_up(map);
 	put_image_player(map, map->xp, map->yp);
 	if (map->mov != movlast)

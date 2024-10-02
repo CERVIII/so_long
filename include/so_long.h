@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 18:10:57 by pcervill          #+#    #+#             */
-/*   Updated: 2023/09/26 11:33:03 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/10/02 13:45:22 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define CYAN  "\x1B[36m"
 # define WHITE  "\x1B[37m"
 
+/* MAC */
 # define A 0
 # define S 1
 # define D 2
@@ -55,6 +56,17 @@
 # define RIGHT 124
 # define UP 126
 # define ESC 53
+
+/* LINUX */
+# define A_L 97
+# define W_L 119
+# define D_L 100
+# define S_L 115
+# define L 65361
+# define U 65362
+# define R 65363
+# define DW 65364
+# define ESC_L 65307
 
 typedef struct s_map
 {
