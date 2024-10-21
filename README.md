@@ -1,6 +1,6 @@
 # So_long
 
-Este proyecto, parte del currículum de la escuela 42, consiste en crear un juego 2D simple usando la biblioteca MiniLibX.
+Este proyecto, consiste en crear un juego 2D simple usando la biblioteca MiniLibX.
 
 ## Descripción del Proyecto
 
