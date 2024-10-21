@@ -25,5 +25,3 @@ Para ejecutar el juego, usa el siguiente comando en el directorio del proyecto:
 Reemplaza `[archivo_mapa]` con la ruta al archivo de mapa que deseas usar.
 
 ---
-
-Puedes copiar y pegar este contenido en tu archivo README.md.
